@@ -323,6 +323,7 @@
 				BAB5088F1722F57A003CE4DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
