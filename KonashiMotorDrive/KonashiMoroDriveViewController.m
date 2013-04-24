@@ -189,23 +189,23 @@ int offPinL;
     [Konashi digitalWrite:PIO7 value:LOW];
 
     // LEFT MOTOR
-    [Konashi pinMode:PIO4 mode:OUTPUT]; // to TA7291P pin5
-    [Konashi pinMode:PIO5 mode:OUTPUT]; // to TA7291P pin6
+    [Konashi pinMode:PIO5 mode:OUTPUT]; // to TA7291P pin5
+    [Konashi pinMode:PIO4 mode:OUTPUT]; // to TA7291P pin6
     
     
     // Set up PWM period and initial duty
-    [Konashi pwmPeriod:PIO4 period:PWM_PERIOD];
     [Konashi pwmPeriod:PIO5 period:PWM_PERIOD];
+    [Konashi pwmPeriod:PIO4 period:PWM_PERIOD];
     
     // Set initial duty time (us) to 0
-    [Konashi pwmDuty:PIO4 duty:0];
     [Konashi pwmDuty:PIO5 duty:0];
+    [Konashi pwmDuty:PIO4 duty:0];
     
     // Disnable PWM mode to avoid unwanted pin action
-    [Konashi pwmMode:PIO4 mode:KONASHI_PWM_DISABLE];
     [Konashi pwmMode:PIO5 mode:KONASHI_PWM_DISABLE];
-    [Konashi digitalWrite:PIO4 value:LOW];
+    [Konashi pwmMode:PIO4 mode:KONASHI_PWM_DISABLE];
     [Konashi digitalWrite:PIO5 value:LOW];
+    [Konashi digitalWrite:PIO4 value:LOW];
     
     [Konashi pinMode:S1 mode:INPUT];
     
@@ -282,8 +282,8 @@ int offPinL;
     }
     else if (tag == LEFT_SLIDER)
     {
-        onPinL = PIO4;
-        offPinL = PIO5;
+        onPinL = PIO5;
+        offPinL = PIO4;
         [self setUpState:onPinL off:offPinL];
     }
 }
@@ -299,8 +299,8 @@ int offPinL;
     }
     else if (tag == LEFT_SLIDER)
     {
-        onPinL = PIO5;
-        offPinL = PIO4;
+        onPinL = PIO4;
+        offPinL = PIO5;
         [self setUpState:onPinL off:offPinL];
     }
 }
