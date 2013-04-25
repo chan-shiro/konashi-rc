@@ -8,7 +8,7 @@
 
 #import "KonashiMoroDriveViewController.h"
 
-#define PWM_PERIOD 1000 // 1000us
+#define PWM_PERIOD 2000 // 2000us 500Hz
 #define RIGHT_SLIDER 1 // Right slider tag
 #define LEFT_SLIDER 2 // Left slider tag
 
@@ -27,17 +27,8 @@ NSString *const kNotConnected = @"Not Connected";
 @synthesize statusLabel = _statusLabel;
 @synthesize motorValueR = _motorValueR;
 @synthesize motorValueL = _motorValueL;
-@synthesize stopBtn = _stopBtn;
-@synthesize backLabel = _backLabel;
-@synthesize forwardLabel = _forwardLabel;
-@synthesize stopLabel = _stopLabel;
-@synthesize stateLabel = _stateLabel;
 @synthesize dutyLabelR = _dutyLabelR;
-@synthesize dutyTitleLabel = _dutyTitleLabel;
-@synthesize periodLabelR = _periodLabelR;
-@synthesize periodTitleLabel = _periodTitleLabel;
 @synthesize dutyLabelL = _dutyLabelL;
-@synthesize periodLabelL = _periodLabelL;
 
 float oldSliderValueR = 0;
 float oldSliderValueL = 0;
@@ -54,7 +45,10 @@ int offPinL;
     // Setup Konashi observers
     [Konashi addObserver:self selector:@selector(ready) name:KONASHI_EVENT_READY];
     [Konashi addObserver:self selector:@selector(disconnected) name:KONASHI_EVENT_DISCONNECTED];
-//    [Konashi addObserver:self selector:@selector(pio_updated) name:KONASHI_EVENT_UPDATE_PIO_INPUT];
+    
+    // Rotate Sliders
+    self.motorValueR.transform = CGAffineTransformMakeRotation(-M_PI * 0.5);
+    self.motorValueL.transform = CGAffineTransformMakeRotation(-M_PI * 0.5);
 
     // Setup labels
     self.connectBtn.titleLabel.text = kFindAndConnect;
@@ -96,6 +90,12 @@ int offPinL;
     }
 }
 
+- (IBAction)sliderTouchUp:(UISlider *)sender
+{
+    sender.value = 0.0;
+    [self updateSpeed:sender];
+}
+
 - (IBAction)updateSpeed:(UISlider *)sender
 {
     float newSliderValue = (float) sender.value;
@@ -127,20 +127,19 @@ int offPinL;
         else
         {
             [self setStopState:tag];
-            NSLog(@"Stopped");
         }
     }
     
     // Setup move state
     if (tag == RIGHT_SLIDER)
     {
-        [self setDutyRatio:onPinR ratio:newSliderValue dutyLabel:self.dutyLabelR periodLabel:self.periodLabelR];
+        [self setDutyRatio:onPinR ratio:newSliderValue dutyLabel:self.dutyLabelR];
         // Update old state
         oldSliderValueR = newSliderValue;
     }
     else if (tag == LEFT_SLIDER)
     {
-        [self setDutyRatio:onPinL ratio:newSliderValue dutyLabel:self.dutyLabelL periodLabel:self.periodLabelL];
+        [self setDutyRatio:onPinL ratio:newSliderValue dutyLabel:self.dutyLabelL];
         // Update old state
         oldSliderValueL = newSliderValue;
     }
@@ -182,30 +181,28 @@ int offPinL;
     [Konashi pwmDuty:PIO6 duty:0];
     [Konashi pwmDuty:PIO7 duty:0];
 
-    // Disnable PWM mode to avoid unwanted pin action
-    [Konashi pwmMode:PIO6 mode:KONASHI_PWM_DISABLE];
-    [Konashi pwmMode:PIO7 mode:KONASHI_PWM_DISABLE];
-    [Konashi digitalWrite:PIO6 value:LOW];
-    [Konashi digitalWrite:PIO7 value:LOW];
+    // Enable PWM mode to avoid unwanted pin action
+    [Konashi pwmMode:PIO6 mode:KONASHI_PWM_ENABLE];
+    [Konashi pwmMode:PIO7 mode:KONASHI_PWM_ENABLE];
 
     // LEFT MOTOR
-    [Konashi pinMode:PIO5 mode:OUTPUT]; // to TA7291P pin5
-    [Konashi pinMode:PIO4 mode:OUTPUT]; // to TA7291P pin6
+    [Konashi pinMode:PIO4 mode:OUTPUT]; // to TA7291P pin5
+    [Konashi pinMode:PIO5 mode:OUTPUT]; // to TA7291P pin6
     
     
     // Set up PWM period and initial duty
-    [Konashi pwmPeriod:PIO5 period:PWM_PERIOD];
     [Konashi pwmPeriod:PIO4 period:PWM_PERIOD];
+    [Konashi pwmPeriod:PIO5 period:PWM_PERIOD];
     
     // Set initial duty time (us) to 0
-    [Konashi pwmDuty:PIO5 duty:0];
     [Konashi pwmDuty:PIO4 duty:0];
+    [Konashi pwmDuty:PIO5 duty:0];
     
-    // Disnable PWM mode to avoid unwanted pin action
-    [Konashi pwmMode:PIO5 mode:KONASHI_PWM_DISABLE];
-    [Konashi pwmMode:PIO4 mode:KONASHI_PWM_DISABLE];
-    [Konashi digitalWrite:PIO5 value:LOW];
+    // Enable PWM mode to avoid unwanted pin action
+    [Konashi pwmMode:PIO4 mode:KONASHI_PWM_ENABLE];
+    [Konashi pwmMode:PIO5 mode:KONASHI_PWM_ENABLE];
     [Konashi digitalWrite:PIO4 value:LOW];
+    [Konashi digitalWrite:PIO5 value:LOW];
     
     [Konashi pinMode:S1 mode:INPUT];
     
@@ -222,27 +219,21 @@ int offPinL;
     [self hideControls];
 }
 
-- (void)pio_updated
-{
-    NSLog(@"Yup!");
-    if ([Konashi digitalRead:PIO0] == HIGH)
-    {
-        NSLog(@"Hey Man");
-        [self stopPressed:nil];
-    }
-}
-
-
 #pragma mark - Helpers
 
-- (void)setDutyRatio:(int)pin ratio:(float)ratio dutyLabel:(UILabel *)dutyLabel periodLabel:(UILabel *)periodLabel
+- (void)setDutyRatio:(int)pin ratio:(float)ratio dutyLabel:(UILabel *)dutyLabel
+{
+    int duty;
+    duty = abs((int)(ratio * PWM_PERIOD));
+    [self setDutyRatio:pin ratio:ratio];
+    dutyLabel.text = [NSString stringWithFormat:@"%.2f", ratio];
+}
+
+- (void)setDutyRatio:(int)pin ratio:(float)ratio
 {
     int duty;
     duty = abs((int)(ratio * PWM_PERIOD));
     [Konashi pwmDuty:pin duty:duty];
-    
-    dutyLabel.text = [NSString stringWithFormat:@"%d us", duty];
-    periodLabel.text = [NSString stringWithFormat:@"%d us", PWM_PERIOD];
 }
 
 - (void)setStopState:(int)tag
@@ -250,24 +241,13 @@ int offPinL;
     // Stop PWM mode
     if (tag == RIGHT_SLIDER)
     {
-        [Konashi pwmMode:onPinR mode:KONASHI_PWM_DISABLE];
-        [Konashi pwmMode:offPinR mode:KONASHI_PWM_DISABLE];
-        
-        
-        // Set pins LOW
-        [Konashi digitalWrite:onPinR value:LOW];
-        [Konashi digitalWrite:offPinR value:LOW];
-        self.stateLabel.text = @"Stop";
+        [self setDutyRatio:PIO6 ratio:0.0 dutyLabel:self.dutyLabelR];
+        [self setDutyRatio:PIO7 ratio:0.0 dutyLabel:self.dutyLabelR];
     }
     else if (tag == LEFT_SLIDER)
     {
-        [Konashi pwmMode:onPinL mode:KONASHI_PWM_DISABLE];
-        [Konashi pwmMode:offPinL mode:KONASHI_PWM_DISABLE];
-        
-        
-        // Set pins LOW
-        [Konashi digitalWrite:onPinL value:LOW];
-        [Konashi digitalWrite:offPinL value:LOW];
+        [self setDutyRatio:PIO4 ratio:0.0 dutyLabel:self.dutyLabelL];
+        [self setDutyRatio:PIO5 ratio:0.0 dutyLabel:self.dutyLabelL];
     }
 }
 
@@ -277,14 +257,13 @@ int offPinL;
     {
         onPinR = PIO6;
         offPinR = PIO7;
-        self.stateLabel.text = @"Forward";
-        [self setUpState:onPinR off:offPinR];
+        [self setUpState:onPinR off:offPinR tag:tag];
     }
     else if (tag == LEFT_SLIDER)
     {
-        onPinL = PIO5;
-        offPinL = PIO4;
-        [self setUpState:onPinL off:offPinL];
+        onPinL = PIO4;
+        offPinL = PIO5;
+        [self setUpState:onPinL off:offPinL tag:tag];
     }
 }
 
@@ -294,33 +273,32 @@ int offPinL;
     {
         onPinR = PIO7;
         offPinR = PIO6;
-        self.stateLabel.text = @"Back";
-        [self setUpState:onPinR off:offPinR];
+        [self setUpState:onPinR off:offPinR tag:tag];
     }
     else if (tag == LEFT_SLIDER)
     {
-        onPinL = PIO4;
-        offPinL = PIO5;
-        [self setUpState:onPinL off:offPinL];
+        onPinL = PIO5;
+        offPinL = PIO4;
+        [self setUpState:onPinL off:offPinL tag:tag];
     }
 }
 
-- (void)setUpState:(int)onPin off:(int)offPin
+- (void)setUpState:(int)onPin off:(int)offPin tag:(int)tag
 {
-    // Set up onPin
-    [Konashi pwmDuty:onPin duty:0];
-    [Konashi pwmPeriod:onPin period:PWM_PERIOD];
-    [Konashi pwmMode:onPin mode:KONASHI_PWM_ENABLE];
-    
-    // Set up offPin
-    [Konashi pwmMode:offPin mode:KONASHI_PWM_DISABLE];
-    [Konashi digitalWrite:offPin value:LOW];
+    if (tag == RIGHT_SLIDER)
+    {
+        [self setDutyRatio:offPin ratio:0.0 dutyLabel:self.dutyLabelR];
+    }
+    else if (tag == LEFT_SLIDER)
+    {
+        [self setDutyRatio:offPin ratio:0.0 dutyLabel:self.dutyLabelL];
+    }
 }
 
 - (void)makeDeadTime:(int)tag
 {
     [self setStopState:tag]; // Dead
-    [NSThread sleepForTimeInterval:0.001]; // Sleep 10ms
+    // [NSThread sleepForTimeInterval:0.001]; // Sleep 10ms
 }
 
 - (void)hideControls
@@ -335,19 +313,10 @@ int offPinL;
 
 - (void)setVisibilityOfControls:(BOOL)value
 {
-    self.stopBtn.hidden = !value;
-    self.stopLabel.hidden = !value;
-    self.forwardLabel.hidden = !value;
-    self.backLabel.hidden = !value;
     self.motorValueR.hidden = !value;
     self.motorValueL.hidden = !value;
-    self.stateLabel.hidden = !value;
-    self.dutyTitleLabel.hidden = !value;
     self.dutyLabelR.hidden = !value;
-    self.periodTitleLabel.hidden = !value;
-    self.periodLabelR.hidden = !value;
     self.dutyLabelL.hidden = !value;
-    self.periodLabelL.hidden = !value;
 }
 
 @end
