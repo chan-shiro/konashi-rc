@@ -20,7 +20,8 @@
 		BAB5088A1722F57A003CE4DB /* KonashiMoroDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508891722F57A003CE4DB /* KonashiMoroDriveViewController.m */; };
 		BAB508941722F597003CE4DB /* Konashi.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508921722F597003CE4DB /* Konashi.m */; };
 		BAB508961722FA3C003CE4DB /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */; };
-		BAB508981723017B003CE4DB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAB508971723017B003CE4DB /* README.md */; };
+		BACF58DB172B2E9E00221C3D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BACF58D9172B2E9E00221C3D /* LICENSE */; };
+		BACF58DC172B2E9E00221C3D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BACF58DA172B2E9E00221C3D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +45,8 @@
 		BAB508921722F597003CE4DB /* Konashi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Konashi.m; sourceTree = "<group>"; };
 		BAB508931722F597003CE4DB /* KonashiDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KonashiDb.h; sourceTree = "<group>"; };
 		BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		BAB508971723017B003CE4DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		BACF58D9172B2E9E00221C3D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BACF58DA172B2E9E00221C3D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,8 @@
 				BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */,
 				BAB508901722F597003CE4DB /* Konashi */,
 				BAB508731722F57A003CE4DB /* KonashiMotorDrive */,
+				BACF58D9172B2E9E00221C3D /* LICENSE */,
+				BACF58DA172B2E9E00221C3D /* README.md */,
 				BAB5086C1722F579003CE4DB /* Frameworks */,
 				BAB5086B1722F579003CE4DB /* Products */,
 			);
@@ -100,7 +104,6 @@
 				BAB508881722F57A003CE4DB /* KonashiMoroDriveViewController.h */,
 				BAB508891722F57A003CE4DB /* KonashiMoroDriveViewController.m */,
 				BAB508741722F57A003CE4DB /* Supporting Files */,
-				BAB508971723017B003CE4DB /* README.md */,
 			);
 			path = KonashiMotorDrive;
 			sourceTree = "<group>";
@@ -186,7 +189,8 @@
 				BAB508821722F57A003CE4DB /* Default@2x.png in Resources */,
 				BAB508841722F57A003CE4DB /* Default-568h@2x.png in Resources */,
 				BAB508871722F57A003CE4DB /* MainStoryboard.storyboard in Resources */,
-				BAB508981723017B003CE4DB /* README.md in Resources */,
+				BACF58DB172B2E9E00221C3D /* LICENSE in Resources */,
+				BACF58DC172B2E9E00221C3D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
