@@ -226,6 +226,7 @@
         <class className="MotorDriveViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MotorDriveViewController.h"/>
             <relationships>
+                <relationship kind="action" name="find:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="connectBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dutyLabelL" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dutyLabelR" candidateClass="UILabel"/>
@@ -235,6 +236,8 @@
         <class className="SliderViewController" superclassName="MotorDriveViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SliderViewController.h"/>
             <relationships>
+                <relationship kind="action" name="sliderTouchUp:" candidateClass="UISlider"/>
+                <relationship kind="action" name="updateSpeed:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="motorValueL" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="motorValueR" candidateClass="UISlider"/>
             </relationships>

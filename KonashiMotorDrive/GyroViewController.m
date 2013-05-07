@@ -43,7 +43,15 @@ float droll = 0.0;
 float dpitch = 0.0;
 float dyaw = 0.0;
 
+NSOperationQueue *attitudeQueue;
+
 #pragma mark - Override Methods
+
+- (void)initializer
+{
+    // Create queue for attitude
+    attitudeQueue = [NSOperationQueue alloc];
+}
 
 - (void)disconnected
 {
