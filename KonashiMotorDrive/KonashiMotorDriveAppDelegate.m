@@ -6,9 +6,26 @@
 //  Copyright (c) 2013年 chan-shiro. All rights reserved.
 //
 
-#import "KonashiMoroDriveAppDelegate.h"
+#import "KonashiMotorDriveAppDelegate.h"
 
-@implementation KonashiMoroDriveAppDelegate
+@interface KonashiMotorDriveAppDelegate()
+{
+    CMMotionManager *motionmanager;
+}
+@end
+
+@implementation KonashiMotorDriveAppDelegate
+
+// Create CMMotionManager Instance as a Singleton
+- (CMMotionManager *)sharedManager
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        motionmanager = [[CMMotionManager alloc] init];
+    });
+    return motionmanager;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

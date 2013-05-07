@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface KonashiMoroDriveAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface KonashiMotorDriveAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic, readonly) CMMotionManager *sharedManager;
 
 @end

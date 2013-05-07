@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA3378B7173550B1007D51F1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3378B6173550B1007D51F1 /* CoreMotion.framework */; };
+		BA3378BA17355212007D51F1 /* GyroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3378B917355212007D51F1 /* GyroViewController.m */; };
+		BA3378C017355B92007D51F1 /* MotorDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3378BF17355B92007D51F1 /* MotorDriveViewController.m */; };
 		BAB5086E1722F579003CE4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB5086D1722F579003CE4DB /* UIKit.framework */; };
 		BAB508701722F579003CE4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB5086F1722F579003CE4DB /* Foundation.framework */; };
 		BAB508721722F579003CE4DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB508711722F579003CE4DB /* CoreGraphics.framework */; };
 		BAB508781722F57A003CE4DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAB508761722F57A003CE4DB /* InfoPlist.strings */; };
 		BAB5087A1722F57A003CE4DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508791722F57A003CE4DB /* main.m */; };
-		BAB5087E1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5087D1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.m */; };
+		BAB5087E1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5087D1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.m */; };
 		BAB508801722F57A003CE4DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB5087F1722F57A003CE4DB /* Default.png */; };
 		BAB508821722F57A003CE4DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB508811722F57A003CE4DB /* Default@2x.png */; };
 		BAB508841722F57A003CE4DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB508831722F57A003CE4DB /* Default-568h@2x.png */; };
 		BAB508871722F57A003CE4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB508851722F57A003CE4DB /* MainStoryboard.storyboard */; };
-		BAB5088A1722F57A003CE4DB /* KonashiMoroDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508891722F57A003CE4DB /* KonashiMoroDriveViewController.m */; };
+		BAB5088A1722F57A003CE4DB /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508891722F57A003CE4DB /* SliderViewController.m */; };
 		BAB508941722F597003CE4DB /* Konashi.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB508921722F597003CE4DB /* Konashi.m */; };
 		BAB508961722FA3C003CE4DB /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */; };
 		BACF58DB172B2E9E00221C3D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BACF58D9172B2E9E00221C3D /* LICENSE */; };
@@ -25,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA3378B6173550B1007D51F1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		BA3378B817355212007D51F1 /* GyroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GyroViewController.h; sourceTree = "<group>"; };
+		BA3378B917355212007D51F1 /* GyroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GyroViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		BA3378BE17355B92007D51F1 /* MotorDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorDriveViewController.h; sourceTree = "<group>"; };
+		BA3378BF17355B92007D51F1 /* MotorDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorDriveViewController.m; sourceTree = "<group>"; };
 		BAB5086A1722F579003CE4DB /* KonashiMotorDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonashiMotorDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB5086D1722F579003CE4DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAB5086F1722F579003CE4DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -33,14 +41,14 @@
 		BAB508771722F57A003CE4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAB508791722F57A003CE4DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAB5087B1722F57A003CE4DB /* KonashiMotorDrive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KonashiMotorDrive-Prefix.pch"; sourceTree = "<group>"; };
-		BAB5087C1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KonashiMoroDriveAppDelegate.h; sourceTree = "<group>"; };
-		BAB5087D1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonashiMoroDriveAppDelegate.m; sourceTree = "<group>"; };
+		BAB5087C1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KonashiMotorDriveAppDelegate.h; sourceTree = "<group>"; };
+		BAB5087D1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonashiMotorDriveAppDelegate.m; sourceTree = "<group>"; };
 		BAB5087F1722F57A003CE4DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BAB508811722F57A003CE4DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BAB508831722F57A003CE4DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BAB508861722F57A003CE4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		BAB508881722F57A003CE4DB /* KonashiMoroDriveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KonashiMoroDriveViewController.h; sourceTree = "<group>"; };
-		BAB508891722F57A003CE4DB /* KonashiMoroDriveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KonashiMoroDriveViewController.m; sourceTree = "<group>"; };
+		BAB508881722F57A003CE4DB /* SliderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderViewController.h; sourceTree = "<group>"; };
+		BAB508891722F57A003CE4DB /* SliderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderViewController.m; sourceTree = "<group>"; };
 		BAB508911722F597003CE4DB /* Konashi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Konashi.h; sourceTree = "<group>"; };
 		BAB508921722F597003CE4DB /* Konashi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Konashi.m; sourceTree = "<group>"; };
 		BAB508931722F597003CE4DB /* KonashiDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KonashiDb.h; sourceTree = "<group>"; };
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3378B7173550B1007D51F1 /* CoreMotion.framework in Frameworks */,
 				BAB508961722FA3C003CE4DB /* CoreBluetooth.framework in Frameworks */,
 				BAB5086E1722F579003CE4DB /* UIKit.framework in Frameworks */,
 				BAB508701722F579003CE4DB /* Foundation.framework in Frameworks */,
@@ -67,7 +76,6 @@
 		BAB508611722F579003CE4DB = {
 			isa = PBXGroup;
 			children = (
-				BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */,
 				BAB508901722F597003CE4DB /* Konashi */,
 				BAB508731722F57A003CE4DB /* KonashiMotorDrive */,
 				BACF58D9172B2E9E00221C3D /* LICENSE */,
@@ -89,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				BAB5086D1722F579003CE4DB /* UIKit.framework */,
+				BA3378B6173550B1007D51F1 /* CoreMotion.framework */,
+				BAB508951722FA3C003CE4DB /* CoreBluetooth.framework */,
 				BAB5086F1722F579003CE4DB /* Foundation.framework */,
 				BAB508711722F579003CE4DB /* CoreGraphics.framework */,
 			);
@@ -98,11 +108,15 @@
 		BAB508731722F57A003CE4DB /* KonashiMotorDrive */ = {
 			isa = PBXGroup;
 			children = (
-				BAB5087C1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.h */,
-				BAB5087D1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.m */,
+				BAB5087C1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.h */,
+				BAB5087D1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.m */,
 				BAB508851722F57A003CE4DB /* MainStoryboard.storyboard */,
-				BAB508881722F57A003CE4DB /* KonashiMoroDriveViewController.h */,
-				BAB508891722F57A003CE4DB /* KonashiMoroDriveViewController.m */,
+				BA3378BE17355B92007D51F1 /* MotorDriveViewController.h */,
+				BA3378BF17355B92007D51F1 /* MotorDriveViewController.m */,
+				BAB508881722F57A003CE4DB /* SliderViewController.h */,
+				BAB508891722F57A003CE4DB /* SliderViewController.m */,
+				BA3378B817355212007D51F1 /* GyroViewController.h */,
+				BA3378B917355212007D51F1 /* GyroViewController.m */,
 				BAB508741722F57A003CE4DB /* Supporting Files */,
 			);
 			path = KonashiMotorDrive;
@@ -202,9 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB5087A1722F57A003CE4DB /* main.m in Sources */,
-				BAB5087E1722F57A003CE4DB /* KonashiMoroDriveAppDelegate.m in Sources */,
-				BAB5088A1722F57A003CE4DB /* KonashiMoroDriveViewController.m in Sources */,
+				BAB5087E1722F57A003CE4DB /* KonashiMotorDriveAppDelegate.m in Sources */,
+				BAB5088A1722F57A003CE4DB /* SliderViewController.m in Sources */,
 				BAB508941722F597003CE4DB /* Konashi.m in Sources */,
+				BA3378BA17355212007D51F1 /* GyroViewController.m in Sources */,
+				BA3378C017355B92007D51F1 /* MotorDriveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

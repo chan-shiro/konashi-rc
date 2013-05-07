@@ -1,19 +1,154 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hJd-of-GgK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Konashi Moro Drive View Controller-->
+        <!--Gyro View Controller - Gyro-->
+        <scene sceneID="f4Z-op-PwV">
+            <objects>
+                <viewController id="O2O-QI-L3u" customClass="GyroViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kFp-mC-Dc1">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qsW-Ii-Z9q">
+                                <rect key="frame" x="20" y="56" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Find &amp; Connect">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="find:" destination="O2O-QI-L3u" eventType="touchUpInside" id="HC3-PJ-AuY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Roll" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1jD-Ag-nlz">
+                                <rect key="frame" x="32" y="143" width="74" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.075800706819999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pitch" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xrc-8v-nDt">
+                                <rect key="frame" x="23" y="206" width="83" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" red="0.0" green="0.094797937860000001" blue="0.91462053570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yaw" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FC3-eR-1kQ">
+                                <rect key="frame" x="28" y="269" width="78" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" red="0.93333339689999995" green="0.69019609689999994" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vf0-se-Yst">
+                                <rect key="frame" x="20" y="343" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Calib">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="calibPressed:" destination="O2O-QI-L3u" eventType="touchUpInside" id="x3e-Gc-XyG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kfG-D3-ORk">
+                                <rect key="frame" x="32" y="433" width="89" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vvK-Xv-QuC">
+                                <rect key="frame" x="182" y="433" width="85" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kGK-YS-TDY">
+                                <rect key="frame" x="110" y="143" width="190" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YVG-Vc-jZJ">
+                                <rect key="frame" x="110" y="206" width="190" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.0" green="0.094797937860000001" blue="0.91462053570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Vt-wJ-cSF">
+                                <rect key="frame" x="110" y="269" width="190" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.93333339689999995" green="0.69019609689999994" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not Connected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WfA-fT-jCa">
+                                <rect key="frame" x="110" y="23" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Gyro" id="rTf-gA-q7h"/>
+                    <connections>
+                        <outlet property="connectBtn" destination="qsW-Ii-Z9q" id="Mp0-Qu-5a4"/>
+                        <outlet property="dutyLabelL" destination="kfG-D3-ORk" id="08E-KH-Jwz"/>
+                        <outlet property="dutyLabelR" destination="vvK-Xv-QuC" id="dIS-f1-HAo"/>
+                        <outlet property="pitchAngleLabel" destination="YVG-Vc-jZJ" id="IG7-XX-ujL"/>
+                        <outlet property="rollAngleLabel" destination="kGK-YS-TDY" id="u0S-04-azU"/>
+                        <outlet property="statusLabel" destination="WfA-fT-jCa" id="Opy-R3-Zmm"/>
+                        <outlet property="yawAngleLabel" destination="0Vt-wJ-cSF" id="WPJ-yt-lBG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqD-AK-38K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="93"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IH0-vw-lRn">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="hJd-of-GgK" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="B1w-7A-ja5">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="Om5-ou-2qe"/>
+                        <segue destination="O2O-QI-L3u" kind="relationship" relationship="viewControllers" id="TmS-4Q-7xs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Eb-IO-GIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594" y="-184"/>
+        </scene>
+        <!--Slider View Controller - Slider-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="KonashiMoroDriveViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="SliderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BPe-Kw-fMd">
-                                <rect key="frame" x="20" y="65" width="280" height="44"/>
+                                <rect key="frame" x="20" y="58" width="280" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Find &amp; Connect">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,8 +161,8 @@
                                     <action selector="find:" destination="2" eventType="touchUpInside" id="mRA-rq-qKz"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="oi2-7f-BGp">
-                                <rect key="frame" x="-81" y="347" width="284" height="23"/>
+                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="oi2-7f-BGp">
+                                <rect key="frame" x="-65" y="256" width="284" height="23"/>
                                 <connections>
                                     <action selector="sliderTouchUp:" destination="2" eventType="touchUpOutside" id="0g4-Ym-jgn"/>
                                     <action selector="sliderTouchUp:" destination="2" eventType="touchUpInside" id="oJG-OK-2yF"/>
@@ -35,19 +170,19 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not Connected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B79-ib-Lc6">
-                                <rect key="frame" x="103" y="20" width="114" height="21"/>
+                                <rect key="frame" x="103" y="18" width="114" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AZy-f7-9bu">
-                                <rect key="frame" x="31" y="513" width="61" height="21"/>
+                                <rect key="frame" x="213" y="453" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2fU-xF-YWp">
-                                <rect key="frame" x="122" y="347" width="284" height="23"/>
+                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2fU-xF-YWp">
+                                <rect key="frame" x="101" y="256" width="284" height="23"/>
                                 <connections>
                                     <action selector="sliderTouchUp:" destination="2" eventType="touchUpInside" id="X87-t3-3gU"/>
                                     <action selector="sliderTouchUp:" destination="2" eventType="touchUpOutside" id="fWa-Ah-tux"/>
@@ -55,7 +190,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ah-Co-9wY">
-                                <rect key="frame" x="234" y="513" width="61" height="21"/>
+                                <rect key="frame" x="47" y="453" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,6 +198,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Slider" id="QZa-G8-eff"/>
                     <connections>
                         <outlet property="connectBtn" destination="BPe-Kw-fMd" id="aKX-vQ-IMa"/>
                         <outlet property="dutyLabelL" destination="6ah-Co-9wY" id="dDU-vL-Lzk"/>
@@ -74,23 +210,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-15" y="-740"/>
         </scene>
     </scenes>
     <classes>
-        <class className="KonashiMoroDriveViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KonashiMoroDriveViewController.h"/>
+        <class className="GyroViewController" superclassName="MotorDriveViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GyroViewController.h"/>
             <relationships>
-                <relationship kind="action" name="find:"/>
-                <relationship kind="action" name="sliderTouchUp:" candidateClass="UISlider"/>
-                <relationship kind="action" name="stopPressed:"/>
-                <relationship kind="action" name="updateSpeed:" candidateClass="UISlider"/>
+                <relationship kind="action" name="calibPressed:"/>
+                <relationship kind="outlet" name="pitchAngleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rollAngleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yawAngleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MotorDriveViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MotorDriveViewController.h"/>
+            <relationships>
                 <relationship kind="outlet" name="connectBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dutyLabelL" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dutyLabelR" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SliderViewController" superclassName="MotorDriveViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SliderViewController.h"/>
+            <relationships>
                 <relationship kind="outlet" name="motorValueL" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="motorValueR" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="periodLabelL" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>
