@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 chan-shiro. All rights reserved.
 //
 
+// NOTE This ViewController is under development
+
 #import "GyroViewController.h"
 #import "Konashi.h"
 #import "KonashiMotorDriveAppDelegate.h"
