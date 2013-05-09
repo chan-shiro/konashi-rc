@@ -53,6 +53,7 @@ NSOperationQueue *attitudeQueue;
 {
     // Create queue for attitude
     attitudeQueue = [NSOperationQueue alloc];
+    [self startGyroUpdate:GYRO_UPDATE_INTERVAL];
 }
 
 - (void)disconnected
@@ -64,7 +65,6 @@ NSOperationQueue *attitudeQueue;
 - (void)afterReady
 {
     [self calibPressed:nil];
-    [self startGyroUpdate:GYRO_UPDATE_INTERVAL];
 }
 
 #pragma mark - Button Actions
